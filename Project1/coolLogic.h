@@ -16,7 +16,7 @@ public:
 	std::string scrambleWord(std::string word);
 
 	//takes care of end-of-game stuff
-	void gameOver();
+	/*void gameOver();*/
 
 private:
 	int numCorrect;

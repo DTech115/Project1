@@ -54,9 +54,44 @@ bool logic::makeGame() {
 	}
 }
 
-//bool logic::playGame() {
-//	
-//}
+bool logic::playGame() {
+	//introduction & variable setting
+	std::cout << "W E L C O M E  to the  S C R A M B L E R" << std::endl;
+	std::cout << "Unscramble 5 words in 60 seconds to be the cool dude!" << std::endl;
+	
+	std::string scrambledWord = "";
+	std::string correctWord = "";
+	std::string userGuess = "";
+
+	std::cout << "\nE Z  R O U N D\n" << std::endl;
+
+	std::cout << "Round 1" << std::endl;
+	correctWord = small[0];
+	scrambledWord = scrambleWord(small[0]);
+
+	std::cout << "Your word: " << scrambledWord << std::endl;
+	while (userGuess != correctWord) {
+		std::cin >> userGuess;
+	}
+
+	std::cout << "Round 2" << std::endl;
+	correctWord = small[1];
+	scrambledWord = scrambleWord(small[1]);
+
+	std::cout << "Your word: " << scrambledWord << std::endl;
+	while (userGuess != correctWord) {
+		std::cin >> userGuess;
+	}
+
+	std::cout << "\nM E D  R O U N D\n" << std::endl;
+	std::cout << "Round 3" << std::endl;
+	correctWord = medium[1];
+	scrambledWord = scrambleWord(medium[1]);
+
+
+	return true;
+
+}
 
 std::string logic::scrambleWord(std::string word) {
 	random_shuffle(word.begin(), word.end());
