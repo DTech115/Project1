@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-//constructor resets all words
+//constructor resets all words & such
 logic::logic() {
 
 	word = "";
@@ -16,9 +16,14 @@ logic::logic() {
 	}
 }
 
+//saves the words into their proper arrays
 bool logic::makeGame() {
 	std::ifstream file("dictionary.txt");
 	std::string line;
+
+	int smallCount = 0;
+	int medCount = 0;
+	int largeCount = 0;
 
 	int count = 0;
 	while (std::getline(file, line)) {
@@ -26,23 +31,32 @@ bool logic::makeGame() {
 		if (line.length() >= 4 && line.length() < 6) {
 			small[count] = line;
 			count++;
+			smallCount++;
 		}
 		else if (line.length() >= 6 && line.length() < 8) {
 			medium[count] = line;
 			count++;
+			medCount++;
 		}
 		else if (line.length() >= 8) {
 			large[count] = line;
 			count++;
+			largeCount++;
 		}
 	}
-	return true;
+
+	if (smallCount >= 2 && medCount >= 2 && largeCount >= 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 //bool logic::playGame() {
-//
+//	
 //}
-//
+
 //std::string logic::scrambleWord(std::string word) {
 //
 //}
