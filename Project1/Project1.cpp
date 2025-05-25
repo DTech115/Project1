@@ -11,7 +11,7 @@ void* timer(ALLEGRO_THREAD* ptr, void* arg);
 
 logic game;
 
-
+//thread split!
 int main() {
 
     ALLEGRO_THREAD* create1 = NULL, * create2 = NULL;
@@ -19,8 +19,12 @@ int main() {
     create1 = al_create_thread(input, NULL);
     create2 = al_create_thread(timer, NULL);
 
-	game.makeGame();
-
+	//game.makeGame();
+	if (!game.makeGame()) {
+		std::cerr << "Not enough words, for the various difficulties or otherwise!" << std::endl;
+		return -1;
+	}
+	
 
 	while (!finished && !timeOut)
 	{
@@ -56,6 +60,7 @@ void* input(ALLEGRO_THREAD* ptr, void* arg)
 {
 	finished = false;
 
+	//introduction & instance variables
 	std::cout << "W E L C O M E  to the  S C R A M B L E R" << std::endl;
 	std::cout << "Unscramble 5 words in 60 seconds to be the big brain kewl dude!" << std::endl;
 
@@ -67,15 +72,16 @@ void* input(ALLEGRO_THREAD* ptr, void* arg)
 	std::cout << "\nE Z  R O U N D\n" << std::endl;
 
 	std::cout << "Round 1" << std::endl;
-	correctWord = game.getFirstWord();
-	scrambledWord = game.scrambleWord(correctWord);
+	correctWord = game.getFirstWord(); //gets the first easy word
+	scrambledWord = game.scrambleWord(correctWord); //scrambles that word
 
 	std::cout << "Your word: " << scrambledWord << std::endl;
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
-	game.correctUp();
+	game.correctUp(); //increases the correct count
 
+	//repeat!
 	std::cout << "Round 2" << std::endl;
 	correctWord = game.getSecondWord();
 	scrambledWord = game.scrambleWord(correctWord);
@@ -122,6 +128,7 @@ void* input(ALLEGRO_THREAD* ptr, void* arg)
 	}
 	game.correctUp();
 	finished = true;
+	//finally returns true if the user won!
 
 	return NULL;
 }

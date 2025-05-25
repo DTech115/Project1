@@ -19,15 +19,18 @@ logic::logic() {
 
 //saves the words into their proper arrays
 bool logic::makeGame() {
+	//reads the array
 	std::ifstream file("dictionary.txt");
 	std::string line;
 
+	//sets each respective array's counter to 0
 	int smallCount = 0;
 	int medCount = 0;
 	int largeCount = 0;
 
+	//while there are still lines in the file, yoink that line & check
+	//how many characters it has. Put the word in the proper array depending on its length.
 	while (std::getline(file, line)) {
-		//std::cout << line << std::endl;
 		if (line.length() >= 4 && line.length() < 6) {
 			small[smallCount] = line;
 			smallCount++;
@@ -42,6 +45,8 @@ bool logic::makeGame() {
 		}
 	}
 
+	//respective array counters double as checks for if there are enough
+	//words in the dictionary to play! 
 	if (smallCount >= 2 && medCount >= 2 && largeCount >= 1) {
 		return true;
 	}
@@ -50,12 +55,13 @@ bool logic::makeGame() {
 	}
 }
 
-
+//uses random_shuffle to mess up the word
 std::string logic::scrambleWord(std::string word) {
 	random_shuffle(word.begin(), word.end());
 	return word;
 }
 
+//yoink the right word
 std::string logic::getFirstWord() {
 	return small[0];
 }
@@ -72,10 +78,12 @@ std::string logic::getFifthWord() {
 	return large[0];
 }
 
+//increase number!
 void logic::correctUp() {
 	numCorrect++;
 }
 
+//depending on the numCorrect value, give a very appropriate comment & score!
 void logic::gameOver() {
 	if (numCorrect <= 1) {
 		std::cout << "C'mon man... you can do better..." << std::endl;

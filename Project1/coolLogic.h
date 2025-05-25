@@ -6,7 +6,7 @@ public:
 	//constructor for default values
 	logic();
 
-	//yoinks the words from a file & stores them properly
+	//yoinks the words from a file & stores them in their proper ez/med/hard arrays
 	bool makeGame();
 
 	//scrambles a given word
@@ -15,12 +15,14 @@ public:
 	//shows how smart you are!!!
 	void gameOver();
 
+	//getters for each word
 	std::string getFirstWord();
 	std::string getSecondWord();
 	std::string getThirdWord();
 	std::string getFourthWord();
 	std::string getFifthWord();
 	
+	//iterator for questions right
 	void correctUp();
 
 private:
