@@ -26,22 +26,18 @@ bool logic::makeGame() {
 	int medCount = 0;
 	int largeCount = 0;
 
-	int count = 0;
 	while (std::getline(file, line)) {
 		//std::cout << line << std::endl;
 		if (line.length() >= 4 && line.length() < 6) {
-			small[count] = line;
-			count++;
+			small[smallCount] = line;
 			smallCount++;
 		}
 		else if (line.length() >= 6 && line.length() < 8) {
-			medium[count] = line;
-			count++;
+			medium[medCount] = line;
 			medCount++;
 		}
 		else if (line.length() >= 8) {
-			large[count] = line;
-			count++;
+			large[largeCount] = line;
 			largeCount++;
 		}
 	}
@@ -63,6 +59,7 @@ bool logic::playGame() {
 	std::string correctWord = "";
 	std::string userGuess = "";
 
+	//small array round
 	std::cout << "\nE Z  R O U N D\n" << std::endl;
 
 	std::cout << "Round 1" << std::endl;
@@ -83,12 +80,41 @@ bool logic::playGame() {
 		std::cin >> userGuess;
 	}
 
+	//medium array round
 	std::cout << "\nM E D  R O U N D\n" << std::endl;
+
 	std::cout << "Round 3" << std::endl;
+	correctWord = medium[0];
+	scrambledWord = scrambleWord(medium[0]);
+
+	std::cout << "Your word: " << scrambledWord << std::endl;
+	while (userGuess != correctWord) {
+		std::cin >> userGuess;
+	}
+
+	std::cout << "Round 4" << std::endl;
 	correctWord = medium[1];
 	scrambledWord = scrambleWord(medium[1]);
 
+	std::cout << "Your word: " << scrambledWord << std::endl;
+	while (userGuess != correctWord) {
+		std::cin >> userGuess;
+	}
 
+	//large array round
+	std::cout << "\nH A R D  R O U N D\n" << std::endl;
+
+	std::cout << "Final Round" << std::endl;
+	correctWord = large[0];
+	scrambledWord = scrambleWord(large[0]);
+
+	std::cout << "Your word: " << scrambledWord << std::endl;
+	while (userGuess != correctWord) {
+		std::cin >> userGuess;
+	}
+
+	std::cout << "C O N G R A T S" << std::endl;
+	std::cout << "You are the big brain kewl dude." << std::endl;
 	return true;
 
 }
