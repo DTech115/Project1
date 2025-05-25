@@ -10,13 +10,13 @@ public:
 	bool makeGame();
 
 	//starts the game & checks if player wins
-	bool playGame();
+	//bool playGame();
 
-	//scrambles a given word
-	std::string scrambleWord(std::string word);
+	////scrambles a given word
+	//std::string scrambleWord(std::string word);
 
-	//takes care of end-of-game stuff
-	void gameOver();
+	////takes care of end-of-game stuff
+	//void gameOver();
 
 private:
 	int numCorrect;
