@@ -70,6 +70,7 @@ bool logic::playGame() {
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
+	numCorrect++;
 
 	std::cout << "Round 2" << std::endl;
 	correctWord = small[1];
@@ -79,6 +80,7 @@ bool logic::playGame() {
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
+	numCorrect++;
 
 	//medium array round
 	std::cout << "\nM E D  R O U N D\n" << std::endl;
@@ -91,6 +93,7 @@ bool logic::playGame() {
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
+	numCorrect++;
 
 	std::cout << "Round 4" << std::endl;
 	correctWord = medium[1];
@@ -100,6 +103,7 @@ bool logic::playGame() {
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
+	numCorrect++;
 
 	//large array round
 	std::cout << "\nH A R D  R O U N D\n" << std::endl;
@@ -112,9 +116,8 @@ bool logic::playGame() {
 	while (userGuess != correctWord) {
 		std::cin >> userGuess;
 	}
+	numCorrect++;
 
-	std::cout << "C O N G R A T S" << std::endl;
-	std::cout << "You are the big brain kewl dude." << std::endl;
 	return true;
 
 }
@@ -123,7 +126,23 @@ std::string logic::scrambleWord(std::string word) {
 	random_shuffle(word.begin(), word.end());
 	return word;
 }
-//
-//void logic::gameOver() {
-//
-//}
+
+void logic::gameOver() {
+	if (numCorrect <= 1) {
+		std::cout << "C'mon man... you can do better..." << std::endl;
+	}
+	else if (numCorrect == 2) {
+		std::cout << "Certified CHUMP status.\n" << numCorrect << " out of 5." << std::endl;
+	}
+	else if (numCorrect == 3) {
+		std::cout << "Mid. Try harder.\n" << numCorrect << " out of 5." << std::endl;
+	}
+	else if (numCorrect == 4) {
+		std::cout << "Not bad. But not perfect. \n" << numCorrect << " out of 5." << std::endl;
+	}
+	else {
+		std::cout << "\nC O N G R A T S" << std::endl;
+		std::cout << "You are the big brain kewl dude." << std::endl;
+	}
+
+}

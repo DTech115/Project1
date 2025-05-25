@@ -3,20 +3,20 @@
 class logic {
 
 public:
-	//constructor
+	//constructor for default values
 	logic();
 
-	//yoinks the words from a file
+	//yoinks the words from a file & stores them properly
 	bool makeGame();
 
-	//starts the game & checks if player wins
+	//starts the game per word & counts wins
 	bool playGame();
 
 	//scrambles a given word
 	std::string scrambleWord(std::string word);
 
-	//takes care of end-of-game stuff
-	/*void gameOver();*/
+	//shows how smart you are!!!
+	void gameOver();
 
 private:
 	int numCorrect;
