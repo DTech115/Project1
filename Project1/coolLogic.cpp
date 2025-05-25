@@ -1,4 +1,5 @@
 #include "coolLogic.h"
+#include "fstream"
 
 //constructor resets all words
 logic::logic() {
@@ -13,14 +14,19 @@ logic::logic() {
 }
 
 bool logic::makeGame() {
+	std::ifstream file("dictionary.txt");
+	std::string line;
 
+	while (std::getline(file, line)) {
+		std::cout << line << std::endl;
+	}
 }
 
 bool logic::playGame() {
 
 }
 
-std::string logic::scrambledWord(std::string word) {
+std::string logic::scrambleWord(std::string word) {
 
 }
 

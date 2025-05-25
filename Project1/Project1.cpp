@@ -2,6 +2,9 @@
 #include "coolLogic.h"
 
 int main() {
+    logic game;
 
-    std::cout << "Hello World!\n";
+    game.makeGame();
+
+    std::cout << "Game over!\n";
 }
