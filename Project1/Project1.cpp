@@ -6,5 +6,6 @@ int main() {
 
     game.makeGame();
 
-    std::cout << "Game over!\n";
+    std::cout << "======= Game over! ======\n";
+
 }

@@ -20,8 +20,21 @@ bool logic::makeGame() {
 	std::ifstream file("dictionary.txt");
 	std::string line;
 
+	int count = 0;
 	while (std::getline(file, line)) {
-		std::cout << line << std::endl;
+		//std::cout << line << std::endl;
+		if (line.length() >= 4 && line.length() < 6) {
+			small[count] = line;
+			count++;
+		}
+		else if (line.length() >= 6 && line.length() < 8) {
+			medium[count] = line;
+			count++;
+		}
+		else if (line.length() >= 8) {
+			large[count] = line;
+			count++;
+		}
 	}
 	return true;
 }
