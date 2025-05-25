@@ -41,10 +41,14 @@ int main() {
 
 
 	}
-	if (finished)
-		std::cout << "\n\tUser entered input and that ended the program\n";
-	else
-		std::cout << "\n\tTime ran out and that ended the program1\n";
+	if (finished) {
+		game.gameOver();
+	}
+	else {
+		std::cout << "\nT I M E   O U T !" << std::endl;
+		game.gameOver();
+	}
+	system("pause");
 	return 0;
 }
 
@@ -127,7 +131,7 @@ void* timer(ALLEGRO_THREAD* ptr, void* arg)
 	time_t startTime, currentTime; //times used to measure elapsed time
 	startTime = time(NULL);
 	currentTime = time(NULL);
-	while (currentTime - startTime < 10 && !finished)
+	while (currentTime - startTime < 60 && !finished)
 	{
 		currentTime = time(NULL);
 	}

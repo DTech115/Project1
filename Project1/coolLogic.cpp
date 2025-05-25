@@ -91,7 +91,7 @@ void logic::gameOver() {
 	}
 	else {
 		std::cout << "\nC O N G R A T S" << std::endl;
-		std::cout << "You are the big brain kewl dude." << std::endl;
+		std::cout << "You are the big brain kewl dude! " << numCorrect << " out of 5!" << std::endl;
 	}
 
 }
