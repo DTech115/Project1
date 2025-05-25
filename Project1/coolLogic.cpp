@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 //constructor resets all words & such
 logic::logic() {
@@ -57,9 +58,10 @@ bool logic::makeGame() {
 //	
 //}
 
-//std::string logic::scrambleWord(std::string word) {
-//
-//}
+std::string logic::scrambleWord(std::string word) {
+	random_shuffle(word.begin(), word.end());
+	return word;
+}
 //
 //void logic::gameOver() {
 //
