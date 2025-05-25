@@ -9,14 +9,19 @@ public:
 	//yoinks the words from a file & stores them properly
 	bool makeGame();
 
-	//starts the game per word & counts wins
-	bool playGame();
-
 	//scrambles a given word
 	std::string scrambleWord(std::string word);
 
 	//shows how smart you are!!!
 	void gameOver();
+
+	std::string getFirstWord();
+	std::string getSecondWord();
+	std::string getThirdWord();
+	std::string getFourthWord();
+	std::string getFifthWord();
+	
+	void correctUp();
 
 private:
 	int numCorrect;
