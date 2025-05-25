@@ -1,8 +1,7 @@
 #include <iostream>
 #include "coolLogic.h"
 
-int main()
-{
-    logic logic;
+int main() {
+
     std::cout << "Hello World!\n";
 }

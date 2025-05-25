@@ -1,19 +1,28 @@
+#include <iostream>
 
 class logic {
+
 public:
+	//constructor
 	logic();
 
+	//yoinks the words from a file
 	bool makeGame();
 
+	//starts the game & checks if player wins
 	bool playGame();
 
-	string scrambleWord(string word);
+	//scrambles a given word
+	std::string scrambleWord(std::string word);
 
-	void gameOver()
+	//takes care of end-of-game stuff
+	void gameOver();
 
 private:
 	int numCorrect;
-	string small[100];
-	string medium[100];
-	string large[100];
+	std::string word;
+	std::string scrambledWord;
+	std::string small[100];
+	std::string medium[100];
+	std::string large[100];
 };
